@@ -1,6 +1,6 @@
-# edgeware-cli
+# straightedge-cli
 
-The edgeware CLI easily allows you to interact with a local or remote Edgeware node or any general substrate node. The api requires you to create a `.env` file with your keypair information, which will be described below.
+The straightedge CLI easily allows you to interact with a local or remote Straightedge node or any general substrate node. The api requires you to create a `.env` file with your keypair information, which will be described below.
 
 ## Configuration
 Create a `.env` file with the following information:
@@ -18,13 +18,13 @@ DERIVATION_PATH=//Alice
 1. Requires: typescript version 3.2 or later, node version 12.3 or later
 2. Clone the git repo.
 3. Build by running `tsc` in the cloned repo.
-4. Run with `./bin/edge`.
+4. Run with `./bin/str`.
 
 ## Usage
 1. Install the package with `yarn` or `npm`
 2. If you run into errors, run `tsc` in the repo to compile the typescript.
 3. If you want to send transactions, have the hex format of a key ready.
-4. Call `edge <module> <func> [...args]` with the desired module function and args.
+4. Call `str <module> <func> [...args]` with the desired module function and args.
 
 ## Options
 ```
@@ -44,12 +44,12 @@ Options:
 edge balances transfer 5FmE1Adpwp1bT1oY95w59RiSPVu9QwzBGjKsE2hxemD2AFs8 1000
 ```
 
-- Fetching an account balance from the Edgeware Testnet
+- Fetching an account balance from the Straightedge Testnet
 ```
-edge -r testnode.edgewa.re balances freeBalance 5FmE1Adpwp1bT1oY95w59RiSPVu9QwzBGjKsE2hxemD2AFs8
+str -r testnode.straighted.ge balances freeBalance 5FmE1Adpwp1bT1oY95w59RiSPVu9QwzBGjKsE2hxemD2AFs8
 ```
 
 - Registering an identity
 ```
-edge identity register github drewstone
+str identity register github drewstone
 ```

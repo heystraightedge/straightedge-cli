@@ -1,10 +1,10 @@
 {
-  "name": "edgeware-cli",
+  "name": "straightedge-cli",
   "version": "0.3.9",
   "license": "GPL-3.0",
   "main": "dist/index.js",
   "bin": {
-    "edge": "./bin/edge"
+    "str": "./bin/str"
   },
   "preferGlobal": true,
   "files": [
@@ -17,7 +17,7 @@
     "@types/filesystem": "^0.0.29",
     "commander": "^2.19.0",
     "dotenv": "^7.0.0",
-    "edgeware-node-types": "1.0.9",
+    "straightedge-node-types": "1.0.9",
     "ts-node": "^7.0.1"
   },
   "scripts": {

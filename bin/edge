@@ -7,7 +7,7 @@ try {
     require(__dirname + '/../dist/index');
   } else {
     const root = require('child_process').execSync('npm root -g').toString().trim()
-    require(root + '/edgeware-cli/dist/index');
+    require(root + '/straightedge-cli/dist/index');
   }
 } catch (e) {
   console.error('Installation error: ' + e.message);

@@ -10,16 +10,16 @@ import { isHex } from '@polkadot/util';
 import { CodecArg } from '@polkadot/types/types';
 import { ApiRx, SubmittableResult } from '@polkadot/api';
 import { WsProvider } from '@polkadot/rpc-provider';
-import { IdentityTypes } from 'edgeware-node-types/dist/identity';
-import { VotingTypes } from 'edgeware-node-types/dist/voting';
-import { SignalingTypes } from 'edgeware-node-types/dist/signaling';
+import { IdentityTypes } from 'straightedge-node-types/dist/identity';
+import { VotingTypes } from 'straightedge-node-types/dist/voting';
+import { SignalingTypes } from 'straightedge-node-types/dist/signaling';
 import { ApiOptions } from '@polkadot/api/types';
 import { switchMap } from 'rxjs/operators';
 import { of, combineLatest } from 'rxjs';
 import { KeyringPair } from '@polkadot/keyring/types';
 import { Keys } from '@polkadot/types/interfaces';
 
-const EDGEWARE_TESTNET_PUBLIC_CONN = 'testnet3.edgewa.re';
+const STRAIGHTEDGE_TESTNET_PUBLIC_CONN = 'testnet3.straighted.ge';
 
 const isQuery = (api: ApiRx, mod: string, func: string) => {
   return api.query[mod] && !!api.query[mod][func];
@@ -117,8 +117,8 @@ program.version(version)
     if (typeof program.remoteNode === 'undefined') {
       console.error('Defaulting to local node 127.0.0.1:9944');
       program.remoteNode = 'ws://127.0.0.1:9944';
-    } else if (program.remoteNode === 'edgeware') {
-      program.remoteNode = `ws://${EDGEWARE_TESTNET_PUBLIC_CONN}:9944`;
+    } else if (program.remoteNode === 'straightedge') {
+      program.remoteNode = `ws://${STRAIGHTEDGE_TESTNET_PUBLIC_CONN}:9944`;
     }
 
     const apiObservable = await initApiRx(program.remoteNode).isReady;

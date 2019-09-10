@@ -41,7 +41,7 @@ Options:
 ## Examples
 - Transfering tokens from one's balance
 ```
-edge balances transfer 5FmE1Adpwp1bT1oY95w59RiSPVu9QwzBGjKsE2hxemD2AFs8 1000
+str balances transfer 5FmE1Adpwp1bT1oY95w59RiSPVu9QwzBGjKsE2hxemD2AFs8 1000
 ```
 
 - Fetching an account balance from the Straightedge Testnet

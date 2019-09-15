@@ -13,6 +13,7 @@ import { WsProvider } from '@polkadot/rpc-provider';
 import { IdentityTypes } from 'straightedge-node-types/dist/identity';
 import { VotingTypes } from 'straightedge-node-types/dist/voting';
 import { SignalingTypes } from 'straightedge-node-types/dist/signaling';
+import { TreasuryRewardTypes } from 'straightedge-node-types/dist/treasuryReward';
 import { ApiOptions } from '@polkadot/api/types';
 import { switchMap } from 'rxjs/operators';
 import { of, combineLatest } from 'rxjs';
@@ -60,17 +61,10 @@ const txType = (api: ApiRx, mod: string, func: string) => {
   return result + ') -> ()';
 };
 
-function initApiRx(remoteNodeUrl?: string) {
-  if (!remoteNodeUrl) {
-    remoteNodeUrl = 'ws://localhost:9944';
-  }
-
+function initApiRx(remoteNodeUrl: string): ApiRx {
   if (remoteNodeUrl.indexOf('ws://') === -1 && remoteNodeUrl.indexOf('wss://') === -1) {
-    remoteNodeUrl = `ws://${remoteNodeUrl}`;
-  }
-
-  if (remoteNodeUrl.indexOf('9944') === -1) {
-    remoteNodeUrl = `${remoteNodeUrl}:9944`;
+    // default to secure websocket if none provided
+    remoteNodeUrl = `wss://${remoteNodeUrl}`;
   }
 
   const options: ApiOptions = {
@@ -79,6 +73,7 @@ function initApiRx(remoteNodeUrl?: string) {
       ...IdentityTypes,
       ...SignalingTypes,
       ...VotingTypes,
+      ...TreasuryRewardTypes,
     },
   };
   const api = new ApiRx(options);
@@ -117,11 +112,18 @@ program.version(version)
     if (typeof program.remoteNode === 'undefined') {
       console.error('Defaulting to local node 127.0.0.1:9944');
       program.remoteNode = 'ws://127.0.0.1:9944';
+<<<<<<< HEAD
     } else if (program.remoteNode === 'straightedge') {
       program.remoteNode = `ws://${STRAIGHTEDGE_TESTNET_PUBLIC_CONN}:9944`;
+=======
+    } else if (program.remoteNode === 'edgeware') {
+      // pick a random node from mainnetX.edgewa.re where X = 1 thru 10
+      const nodeNumber = Math.floor((Math.random() * 9) + 1);
+      program.remoteNode = `wss://mainnet${nodeNumber}.edgewa.re`;
+>>>>>>> upstream/master
     }
 
-    const apiObservable = await initApiRx(program.remoteNode).isReady;
+    const apiObservable = initApiRx(program.remoteNode).isReady;
     apiObservable.pipe(switchMap((api: ApiRx) => {
       // List the available actions then exit
       if (listing) {
@@ -236,7 +238,7 @@ program.version(version)
   })
   .option('-A, --argfile <file>', 'A JSON-formatted file containing an array of args')
   .option('-s, --seed <hexSeed>', 'A seed for signing transactions')
-  .option('-r, --remoteNode <url>', 'Remote node url (default: "localhost:9944").')
+  .option('-r, --remoteNode <url>', 'Remote node url (default: "ws://localhost:9944").')
   .option('-T, --types', 'Print types instead of performing action.')
   .option('-t, --tail', 'Tail output rather than exiting immediately.');
 
@@ -245,7 +247,11 @@ program.on('--help', () => {
   console.log('Examples (TODO):');
   console.log(`  ${execName} --seed //Alice identity register github drewstone\n`);
   console.log(`  ${execName} --seed //Alice balances transfer 5CyT7JeJnCSwXopxPRWM1o3rLXz6WDisq1mkqX4eq7SSzLKX 1000\n`);
+<<<<<<< HEAD
   console.log(`  ${execName} -r testnode.straighted.ge balances freeBalance `
+=======
+  console.log(`  ${execName} -r edgeware balances freeBalance `
+>>>>>>> upstream/master
               + `5CyT7JeJnCSwXopxPRWM1o3rLXz6WDisq1mkqX4eq7SSzLKX\n`);
 });
 

@@ -112,15 +112,8 @@ program.version(version)
     if (typeof program.remoteNode === 'undefined') {
       console.error('Defaulting to local node 127.0.0.1:9944');
       program.remoteNode = 'ws://127.0.0.1:9944';
-<<<<<<< HEAD
     } else if (program.remoteNode === 'straightedge') {
       program.remoteNode = `ws://${STRAIGHTEDGE_TESTNET_PUBLIC_CONN}:9944`;
-=======
-    } else if (program.remoteNode === 'edgeware') {
-      // pick a random node from mainnetX.edgewa.re where X = 1 thru 10
-      const nodeNumber = Math.floor((Math.random() * 9) + 1);
-      program.remoteNode = `wss://mainnet${nodeNumber}.edgewa.re`;
->>>>>>> upstream/master
     }
 
     const apiObservable = initApiRx(program.remoteNode).isReady;
@@ -247,11 +240,7 @@ program.on('--help', () => {
   console.log('Examples (TODO):');
   console.log(`  ${execName} --seed //Alice identity register github drewstone\n`);
   console.log(`  ${execName} --seed //Alice balances transfer 5CyT7JeJnCSwXopxPRWM1o3rLXz6WDisq1mkqX4eq7SSzLKX 1000\n`);
-<<<<<<< HEAD
   console.log(`  ${execName} -r testnode.straighted.ge balances freeBalance `
-=======
-  console.log(`  ${execName} -r edgeware balances freeBalance `
->>>>>>> upstream/master
               + `5CyT7JeJnCSwXopxPRWM1o3rLXz6WDisq1mkqX4eq7SSzLKX\n`);
 });
 

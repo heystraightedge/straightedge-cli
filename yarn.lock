@@ -1779,10 +1779,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-straightedge-node-types@1.0.10:
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/straightedge-node-types/-/straightedge-node-types-1.0.10.tgz#5d2ef6b10f5572b00c64f23264963d796f6e0742"
-  integrity sha512-YMpILKEVRB4ZwB/yiaibbp6Mu2zu4cnvwe5xv6zUSi2ofgnq3khfcY0KfaD9THs/XdJaarNxp8q0ecG60EQZBQ==
+straightedge-node-types@1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/straightedge-node-types/-/straightedge-node-types-1.0.12.tgz#d6d6fbd1d467cf8212d9270d9a5aa5629ca339e9"
+  integrity sha512-Z1Pk+nKqWq4PoyXdkhKqznfCpob35RGDvcohHckd9c+1Pa9qL4AG0XeY80fVQ/Mq2SHjzII5lTT6mPAnorMPNw==
 
 string-template@^1.0.0:
   version "1.0.0"

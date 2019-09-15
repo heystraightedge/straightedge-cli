@@ -1,6 +1,6 @@
 {
   "name": "straightedge-cli",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "license": "GPL-3.0",
   "main": "dist/index.js",
   "bin": {
@@ -17,7 +17,7 @@
     "@types/filesystem": "^0.0.29",
     "commander": "^2.19.0",
     "dotenv": "^7.0.0",
-    "straightedge-node-types": "1.0.10",
+    "straightedge-node-types": "1.0.12",
     "ts-node": "^7.0.1"
   },
   "scripts": {
